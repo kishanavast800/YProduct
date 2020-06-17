@@ -1,0 +1,110 @@
+{% extends 'myShop/basic.html' %}
+{% block title %}Online shoping {% endblock %}
+{% block css %}
+      .col-md-3
+      {
+        display: inline-block;
+        margin-left:-10px;
+        }
+        .col-md-3
+        {
+        width:100%;
+        height:500px;
+        }
+  .carousel-item.active{
+height = 100px;
+}
+        .carousel-indicators .active{
+        background-color:blue;
+        margin-top:-200px;
+        }
+        body .carousel-indicator li{
+        background-color:blue;
+        }
+        body .carousel-control-prev-icon,
+        body .carousel-control-next-icon{
+        background-color:blue;
+        }
+.carousel-control-prev,
+.carousel-control-next{
+top: auto;
+bottom: auto;
+padding-top:155px;
+}
+        body .no-padding{
+        padding-left:0;
+        padding-right:0;
+        }
+    {% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container-fluid">
+  <div id="carouselExampleIndicators" class="carousel slide my-2" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'myShop/image.jpg' %}" class="d-block w-100 " height="320px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'myShop/cat4.jpg' %}" class="d-block w-100 "  height="320px" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'myShop/offer2.jpg' %}" class="d-block w-100" height="320px" alt="...">
+      </div>
+    </div>
+
+  </div>
+
+      {% for product, range, nSlides in allprod %}
+      <h5 class="my-4">{{product.0.category}}</h5>
+        <div class="row">
+          <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+            <ul class ="carousel-indicators">
+              <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+              {% for i in range %}
+                <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+              {% endfor %}
+            </ul>
+                        <!--##slide show start here##-->
+            <div class="container carousel-inner no-padding">
+              <div class="carousel-item active">
+
+                {% for i in product %}
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="card align-items-center" style="width: 18rem;">
+                      <a href="#"> <img src="/media/{{i.image}}" height="250px" class="card-img-top" alt="..."></a>
+                      <div class="card-body">
+                        <h5 class="card-title" id="namepr{{i.id}}">{{i.product_name}}</h5>
+
+
+                      </div>
+                    </div>
+                  </div>
+                {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+              </div><div class="carousel-item">
+                {% endif %}
+
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+        <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="prev">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+        </div>
+      {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
