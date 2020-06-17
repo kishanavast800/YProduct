@@ -14,8 +14,8 @@
         </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark my-2">
-  <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success my-2">
+  <a class="navbar-brand" href="#">YProduct.Com</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,34 +23,85 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/myShop/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <a class="nav-link" href="/myShop/about">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tracker</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
     {% block body %} {% endblock %}
 
+<footer class="container-fluid bg-dark">
+        <div class="card-group">
+  <div class="card bg-dark text-white">
+    <div class="card-body">
+      <h4>काम करो पहचान बनाओ, विस्वास कराओ स्वदेश पर</h4>
+        <h3>About<span>Swadeshi Mart</span></h3>
+
+      <p class="footer-links">
+            <a href="#">Home</a>
+            |
+            <a href="#">Services</a>
+            |
+            <a href="#">About</a>
+            |
+            <a href="#">Contact</a>
+        </p>
+        <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+  <div class="card bg-dark text-white">
+
+    <div class="card-body">
+      <i class="fa fa-map-marker bg-dark"></i>
+              <p><span>Opposite to Diamond Public School,Jalalpur Road,Muradnagar</span>
+                Ghaziabad, Uttar Pradesh - 201206</p>
+
+            <i class="bi bi-phone"></i>
+            <p>+91 6397893883 ,</p>
+            <p>+91 8174856744</p>
+
+        <div class="row">
+            <svg class="bi bi-envelope-fill" width="0.8em" height="1.6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"></path>
+</svg>
+            <p class="mx-2"><a href="mailto:support@swadeshi_mart.com">thakurmukesh346@gmail.com</a></p>
+        </div>
+    </div>
+  </div>
+  <div class="card bg-dark text-white">
+
+    <div class="card-body">
+
+        <h3>  <span>About the company</span></h3>
+          <p>  This is our first startup in the direction of "Aatmanirbhar Bharat Abhiyan". We are going to give you hassle free services in your areas.We specially deals with only our Swadeshi Products.
+            We provide all the product of our targeted area in our targeted areas without any problem.Our first priority is to make our custome happy.</p>
+
+        <div>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+  </div>
+</div>
+    <p class="float-right"><a href="#">Back to top</a></p>
+
+  </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

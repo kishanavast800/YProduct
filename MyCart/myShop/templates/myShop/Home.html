@@ -9,14 +9,12 @@
         .col-md-3
         {
         width:100%;
-        height:500px;
+        height:350px;
         }
-  .carousel-item.active{
-height = 100px;
-}
+
         .carousel-indicators .active{
         background-color:blue;
-        margin-top:-200px;
+
         }
         body .carousel-indicator li{
         background-color:blue;
@@ -40,7 +38,7 @@ padding-top:155px;
 {% block body %}
 {% load static %}
 <div class="container-fluid">
-  <div id="carouselExampleIndicators" class="carousel slide my-2" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -61,7 +59,7 @@ padding-top:155px;
   </div>
 
       {% for product, range, nSlides in allprod %}
-      <h5 class="my-4">{{product.0.category}}</h5>
+      <h2 class="my-2 text-success">{{product.0.category}}</h2>
         <div class="row">
           <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
             <ul class ="carousel-indicators">

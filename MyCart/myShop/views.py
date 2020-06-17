@@ -21,7 +21,7 @@ def index(request):
     return render(request,'myShop/Home.html',param)
 
 def about(request):
-    return HttpResponse("Hello")
+    return render(request,'myShop/about.html')
 def contact(request):
     return HttpResponse("contact")
 def tracker(request):
