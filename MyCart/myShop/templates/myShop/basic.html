@@ -36,6 +36,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/myShop/contact">Contact Us</a>
       </li>
+      
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/myShop/viewproduct">Office Stationary</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Tracker</a>
       </li>
@@ -45,11 +57,13 @@
     <form class="form-inline my-2 my-lg-0 mx-2">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+
     </form>
 
 
+
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdow" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <b> Account</b>
         </a>
         <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
@@ -69,30 +83,56 @@
           <p id="cart-total">0</p>
       </div>
 
+=======
+    <button type="button" class="btn btn-secondary mx-2" id="popcart" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+   sagittis lacus vel augue laoreet rutrum faucibus.">
+  Cart(<span id="cart">0</span>)
+</button>
+>>>>>>> 9ab567f1f93dedc985dfc82fc098ce1b160bb928
   </div>
 </nav>
     {% block body %} {% endblock %}
 
-    <footer class="container-fluid mt-4 bg-dark">
-                <div class="card-group">
-          <div class="card bg-dark text-white">
-            <div class="card-body">
-              <h4>काम करो पहचान बनाओ, विस्वास कराओ स्वदेश पर</h4>
-                <h3>About<span>Swadeshi Mart</span></h3>
 
-              <p class="footer-links">
-                    <a href="/myShop/">Home</a>
-                    |
-                    <a href="#">Services</a>
-                    |
-                    <a href="/myShop/about">About</a>
-                    |
-                    <a href="/myShop/contact">Contact</a>
-                </p>
-                <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a> · <a href="/myShop/term">Terms</a></p>
-            </div>
-          </div>
-          <div class="card bg-dark text-white">
+<footer class="container-fluid bg-dark mt-4">
+        <div class="card-group">
+  <div class="card bg-dark text-white">
+    <div class="card-body">
+      <h4>काम करो पहचान बनाओ, विस्वास कराओ स्वदेश पर</h4>
+        <h3>About<span>Swadeshi Mart</span></h3>
+
+      <p class="footer-links">
+            <a href="#">Home</a>
+            |
+            <a href="#">Services</a>
+            |
+            <a href="#">About</a>
+            |
+            <a href="#">Contact</a>
+        </p>
+        <p>© 2017-2020 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </div>
+  </div>
+  <div class="card bg-dark text-white">
+
+    <div class="card-body">
+      <i class="fa fa-map-marker bg-dark"></i>
+              <p><span>Opposite to Diamond Public School,Jalalpur Road,Muradnagar</span>
+                Ghaziabad, Uttar Pradesh - 201206</p>
+
+            <i class="bi bi-phone"></i>
+            <p>+91 6397893883 ,</p>
+            <p>+91 8174856744</p>
+
+        <div class="row">
+            <svg class="bi bi-envelope-fill" width="0.8em" height="1.6em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"></path>
+</svg>
+            <p class="mx-2"><a href="mailto:support@swadeshi_mart.com">thakurmukesh346@gmail.com</a></p>
+        </div>
+    </div>
+  </div>
+  <div class="card bg-dark text-white">
 
             <div class="card-body">
               <i class="fa fa-map-marker bg-dark"></i>
