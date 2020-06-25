@@ -1,0 +1,62 @@
+{% extends 'myShop/basic.html' %}
+{% block title %}Online shoping {% endblock %}
+{% block css %}
+.col {
+     min-width: 0;
+    max-width: 100%;
+}
+.form-group {
+    width: 500px;
+}
+{% endblock %}
+{% block body %}
+<section class="jumbotron text-center bg-dark">
+    <div class="container text-light">
+      <h1>Add Your Product</h1>
+      <p class="lead text-muted-light my-4">Swadeshi Mart is India’s largest affordable price online swadeshi market in the E-commerce space. We have a platform to manage a network of over 10 manufacture stores that enable the company to run a fast and lean supply chain – from manufacturers straight to customers in 5 cities namely Ghaziabad,Modinagar,UP-NCR and ghaziabad villages.</p>
+    </div>
+  </section>
+<div class="container mx-2 row">
+    <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Contact Information</strong>
+        <h5 >Contact Number</h5>
+          <p class="card-text">If we not able to write your detail<br>
+              please contact on this number <br>+918174856744 and +918004974418
+          <br>My team contact with you in 48 hours.</p>
+    </div>
+
+        <div class="p-4 d-flex flex-column position-static">
+                <form action="/myShop/contact/" method="post"> {% csrf_token %}
+              <div class="form-group">
+                  <h4>Contact Us</h4>
+                <label for="inputName">Name</label>
+                <input type="name" class="form-control" id="name" name="name" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+              </div>
+              <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+              </div>
+              <div class="form-group">
+                <label for="inputDesc">Describe your product here</label>
+                <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+              </div>
+     <h8>please upload your product image</h8>
+     <div class="box my-2">
+    <div class="js--image-preview"><span class="drop animate" style="width: 300px; height: 300px; top: -24.5px; left: 74px;"></span></div>
+    <div class="upload-options">
+      <label>
+        <input type="file" class="image-upload" accept="image/*">
+      </label>
+    </div>
+  </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+
+</div>
+
+{% endblock %}

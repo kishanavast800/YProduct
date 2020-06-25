@@ -8,6 +8,10 @@ urlpatterns = [
     path('tracker/',views.tracker,name='trackerStatus'),
     path('search/',views.search,name='Search'),
     path('viewproduct/',views.viewproduct,name='ViewProduct'),
+    path('showCart/', views.showCart, name='showCart'),
     path('checkout/',views.checkout,name='checkout'),
+    path('term/', views.term, name='term'),
+    path('villageContact/', views.villageContact, name='villageContact'),
+
 
 ]
