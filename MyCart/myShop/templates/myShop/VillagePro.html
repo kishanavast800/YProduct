@@ -26,7 +26,7 @@
     </div>
 
         <div class="p-4 d-flex flex-column position-static">
-                <form action="/myShop/contact/" method="post"> {% csrf_token %}
+                <form action="/myShop/villageContact/" method="post"> {% csrf_token %}
               <div class="form-group">
                   <h4>Contact Us</h4>
                 <label for="inputName">Name</label>
@@ -49,7 +49,7 @@
     <div class="js--image-preview"><span class="drop animate" style="width: 300px; height: 300px; top: -24.5px; left: 74px;"></span></div>
     <div class="upload-options">
       <label>
-        <input type="file" class="image-upload" accept="image/*">
+        <input type="file" id="image" name="image" class="image-upload" accept="image/*" src="/media/{{image.url}}">
       </label>
     </div>
   </div>
@@ -59,4 +59,12 @@
 
 </div>
 
+{% endblock %}
+{% block js %}
+    <script>
+          {% if thanks %}
+    alert('thnaks your precious responce saved');
+    document.location = "/myShop";
+  {% endif %}
+    </script>
 {% endblock %}

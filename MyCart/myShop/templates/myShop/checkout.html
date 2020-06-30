@@ -3,7 +3,7 @@
 {% block body %}
     <div class="container-fluid">
   <section class=" jumbotron text-center bg-dark">
-    <img class="d-block mx-auto mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <img class="d-block mx-auto mb-4"  alt="" width="72" height="72">
     <h2 class="text-light">Checkout form</h2>
     <p class="lead text-light">Thank you for your support. I have to tried provide best servises and my team always tried to resolve your problem immediately any problem you can faced please contact with my team immediately. Thanks for shopping</p>
   </section>
@@ -12,46 +12,27 @@
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
+        <span class="badge badge-secondary badge-pill" id="qty"></span>
       </h4>
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$12</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
+      <ul class="list-group mb-3" id="items">
 
+
+      </ul>
+      <ul class="list-group mb-3" >
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
+          <span>Total Price</span>
+          <strong id="totalPrice"></strong>
         </li>
       </ul>
-
-
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate="">
-
+    <form class="needs-validation" novalidate="" method="post" action="/myShop/checkout/">{% csrf_token %}
+               <input type="hidden" name="itemsJson" id="itemsJson">
+        <input type="hidden" name="amount" id="amount">
         <div class="mb-3">
           <label for="inputName">name </label>
-          <input type="name" class="form-control" id="name" placeholder="name">
+          <input type="name" class="form-control" id="name" name="name" placeholder="name">
           <div class="invalid-feedback">
             Please enter a name
           </div>
@@ -61,23 +42,23 @@
 
         <div class="mb-3">
           <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+          <label for="address1">Address</label>
+          <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St" required="">
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+          <label for="address2">Address line 2 <span class="text-muted">(Optional)</span></label>
+          <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment or suite">
         </div>
           <div class="mb-3">
                   <label for="inputPhone">Enter phone number</label>
@@ -85,18 +66,15 @@
                 </div>
         <div class="row">
           <div class="col-md-5 mb-3">
-            <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required="">
-                <option value="">Choose...</option>
-                <option>India</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
+            <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="city" name="city" required>
           </div>
+
+
+
           <div class="col-md-4 mb-3">
             <label for="state">State</label>
-            <select class="custom-select d-block w-100" id="state" required="">
+            <select class="custom-select d-block w-100" id="state" name="state" required="">
               <option value="">Choose...</option>
               <option>Delhi</option>
                 <option>Uttar pradesh</option>
@@ -106,20 +84,74 @@
             </div>
           </div>
           <div class="col-md-3 mb-3">
-            <label for="zip">Zip</label>
-            <input type="text" class="form-control" id="zip" placeholder="" required="">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="zip_code" name="zip_code" placeholder="" required="">
             <div class="invalid-feedback">
               Zip code required.
             </div>
 
           </div>
         </div>
-
+        <button type="submit" class="btn btn-primary">Place order</button>
 
 
 
       </form>
+
   </div>
   </div>
     </div>
 {% endblock %}
+{% block js %}
+<script>
+    if(localStorage.getItem('shoppingCart') == null)
+      {
+          var cart ={};
+      }
+      else
+      {
+          cart = JSON.parse(localStorage.getItem('shoppingCart'));
+          console.log(cart);
+            console.log(cart["name"]);
+
+       }
+      var sum = 0;
+      var price = 0;
+      var total=0;
+      if ($.isEmptyObject(cart))
+      {
+            mystr =`your cart is empty`
+            $('#items').append(mystr);
+
+      }
+      else
+      {
+          for(item in cart){
+          console.log(cart[item]);
+            let name = cart[item]['name'];
+            console.log(name);
+            let qty = cart[item]['count'];
+            let itemPrice = cart[item]['price'];
+            sum = sum+qty;
+            console.log(sum);
+            price = price + (qty * itemPrice);
+            console.log("print"+ price);
+            mystr =`<li class="list-group-item d-flex justify-content-between align-items-center">${name} (${qty})<span class="badge badge-primary badge-pill">Rs.${itemPrice}</span></li>`
+            console.log(mystr);
+            $('#items').append(mystr);
+            total++;
+            }
+            $('#qty').append(total);
+      }
+
+
+      document.getElementById('totalPrice').innerHTML = price;
+      $('#itemsJson').val(JSON.stringify(cart));
+      {% if thank %}
+      alert('thanks for order and your order id is{{id}}. please track your order using tracker');
+      localStorage.clear();
+      document.location = "/myShop";
+      {% endif %}
+      $('#amount').val($('#totalPrice').html())
+    </script>
+  {% endblock %}
